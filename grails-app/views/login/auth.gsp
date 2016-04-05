@@ -55,7 +55,7 @@
 	}
 
 	#login #remember_me_holder {
-		padding-left: 120px;
+		padding-left: 20px;
 	}
 
 	#login #submit {
@@ -66,7 +66,7 @@
 		float: none;
 		margin-left: 0;
 		text-align: left;
-		width: 200px
+		width: 130px
 	}
 
 	#login .inner .login_message {
@@ -107,10 +107,16 @@
 			<p id="remember_me_holder">
 				<input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me' <g:if test='${hasCookie}'>checked='checked'</g:if>/>
 				<label for='remember_me'><g:message code="springSecurity.login.remember.me.label"/></label>
+				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>
 
 			<p>
-				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
+				<s2ui:linkButton elementId='register' controller='register' messageCode='spring.security.ui.login.register'/>
+			</p>
+			<p>
+				<span class="forgot-link">
+					<g:link controller='register' action='forgotPassword'><g:message code='spring.security.ui.login.forgotPassword'/></g:link>
+				</span>
 			</p>
 		</form>
 	</div>
