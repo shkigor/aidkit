@@ -4,8 +4,9 @@
 		<s2ui:title messageCode='spring.security.ui.register.title'/>
 	</head>
 	<body>
-		<s2ui:formContainer type='register' focus='username' width='800px'>
+		<s2ui:formContainer type='register' focus='email' width='800px'>
 			<s2ui:form beanName='registerCommand'>
+				<g:hiddenField name="username" value="fake"/>
 				<g:if test='${emailSent}'>
 				<br/>
 				<g:message code='spring.security.ui.register.sent'/>
@@ -14,7 +15,6 @@
 				<br/>
 				<table>
 				<tbody>
-					<s2ui:textFieldRow name='username' size='40' labelCodeDefault='Username'/>
 					<s2ui:textFieldRow name='email' size='40' labelCodeDefault='E-mail'/>
 					<s2ui:passwordFieldRow name='password' size='40' labelCodeDefault='Password'/>
 					<s2ui:passwordFieldRow name='password2' size='40' labelCodeDefault='Password (again)'/>
