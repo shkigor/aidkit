@@ -133,6 +133,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/dbconsole/**':    ['permitAll']
 ]
 grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity. ui.password.minLength = 3
+grails.plugin.springsecurity. ui.password.maxLength = 32
+// Minimum 4 characters, maximum 32 at least 1 Alphabet and 1 Number:
+grails.plugin.springsecurity. ui.password.validationRegex = /^(?=.*[A-Za-zА-Яа-я])(?=.*\d)[A-Za-zА-Яа-я\d]{4,32}$/
 
 grails {
     mail {
