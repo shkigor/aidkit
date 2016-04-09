@@ -17,6 +17,8 @@ class Drug {
 
     static belongsTo = [ user: User ]
 
+    static hasMany = [ tags: Tag ]
+
     static constraints = {
         title blank: false
         titleEn nullable: true

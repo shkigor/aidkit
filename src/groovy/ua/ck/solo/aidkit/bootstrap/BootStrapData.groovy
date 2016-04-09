@@ -3,6 +3,7 @@ package ua.ck.solo.aidkit.bootstrap
 import ua.ck.solo.aidkit.Drug
 import ua.ck.solo.aidkit.Role
 import ua.ck.solo.aidkit.Structure
+import ua.ck.solo.aidkit.Tag
 import ua.ck.solo.aidkit.User
 import ua.ck.solo.aidkit.UserRole
 
@@ -31,6 +32,9 @@ class BootStrapData {
         Structure ointment = new Structure(title: 'мазь').save(failOnError: true)
         Structure pill = new Structure(title: 'таблетки').save(failOnError: true)
         Structure spray = new Structure(title: 'спрей').save(failOnError: true)
+
+        Tag tagGrass = new Tag(name: 'Травы', user: adminUser).save(failOnError: true)
+        Tag tagCold = new Tag(name: 'Насморк', user: adminUser).save(failOnError: true)
 
         def instructionsValidol = """
 Валидол – успокаивающее средство.
@@ -91,6 +95,8 @@ class BootStrapData {
                 user: adminUser
         ).save(failOnError: true)
 
+        nasivin.addToTags(tagCold)
+
         Drug aquaMaris = new Drug(
                 title: 'АКВА МАРІС',
                 description: 'Спрей назальний',
@@ -99,6 +105,8 @@ class BootStrapData {
                 comment: 'Ізотонічний стерильний розчин морської води з натуральними солями та мікроелементами',
                 user: adminUser
         ).save(failOnError: true)
+
+        aquaMaris.addToTags(tagCold)
 
         Drug bepanthen = new Drug(
                 title: 'Бепантен',
@@ -158,6 +166,8 @@ class BootStrapData {
                 endingDate: new Date('2019/01/01'),
                 user: adminUser
         ).save(failOnError: true)
+
+        cortex.addToTags(tagGrass)
 
         Drug nifuroxazide = new Drug(
                 title: 'Ніфуроксазид ріхтер',
