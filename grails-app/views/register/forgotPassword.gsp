@@ -14,7 +14,7 @@
 				<br/>
 				<h3><g:message code='spring.security.ui.forgotPassword.description'/></h3>
 				<table>
-					<s2ui:textFieldRow name='username' size='25' labelCodeDefault='Username'/>
+					<s2ui:textFieldRow name='username' size='25' labelCodeDefault='Email'/>
 				</table>
 				<s2ui:submitButton elementId='submit' messageCode='spring.security.ui.forgotPassword.submit'/>
 				</g:else>
