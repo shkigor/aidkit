@@ -1,8 +1,5 @@
 package ua.ck.solo.aidkit
 
-import groovy.transform.ToString
-
-@ToString(includes='title', includeNames=false, includePackage=false)
 class Structure {
 
     String title
@@ -11,5 +8,10 @@ class Structure {
 
     static constraints = {
         title nullable: false
+    }
+
+    @Override
+    public String toString() {
+        return title
     }
 }
