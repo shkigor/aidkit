@@ -10,7 +10,8 @@ class User implements Serializable {
 	private static final long serialVersionUID = 1
 
 	transient springSecurityService
-
+//ToDo Add field name to registration form
+	String name
 	String username
 	String password
 	String email
@@ -48,6 +49,7 @@ class User implements Serializable {
 	static transients = ['springSecurityService']
 
 	static constraints = {
+		name nullable: true
 		username blank: false, unique: true
 		password blank: false
 		email email: true, blank: false
