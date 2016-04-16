@@ -4,6 +4,8 @@ class Structure {
 
     String title
 
+    static belongsTo = [ Drug ]
+
     static hasMany = [ drugs: Drug ]
 
     static constraints = {
