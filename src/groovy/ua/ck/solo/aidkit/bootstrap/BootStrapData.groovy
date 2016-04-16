@@ -17,14 +17,18 @@ class BootStrapData {
         def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
         def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
-        def adminUser = new User(username: 'gisr02', password: 'test', email: 'solo.ck.ua@gmail.com')
+        def adminUser = new User(name: 'Administrator name', username: 'gisr02', password: 'test', email: 'solo.ck.ua@gmail.com')
         adminUser.save(flush: true)
 
-        UserRole.create adminUser, adminRole, true
+        def testUser = new User(name: 'Test user', username: 'test', password: 'test', email: 'test@gmail.com')
+        testUser.save(flush: true)
 
-        assert User.count() == 1
+        UserRole.create adminUser, adminRole, true
+        UserRole.create testUser, userRole, true
+
+        assert User.count() == 2
         assert Role.count() == 2
-        assert UserRole.count() == 1
+        assert UserRole.count() == 2
 
         Structure liquid = new Structure(title: 'жидкость').save(failOnError: true)
         Structure oil = new Structure(title: 'олия').save(failOnError: true)
@@ -71,7 +75,7 @@ class BootStrapData {
                 titleEn: 'Hydrogen peroxide solution',
                 structure: liquid,
                 instructions: '<html> <h1>Инструкция Перекис водню розчин</h1> </html>',
-                endingDate: new Date('2016/12/30'),
+                endingDate: new Date('2016/12/01'),
                 comment: 'комментарий к перекиси',
                 user: adminUser
         ).save(failOnError: true)
@@ -138,7 +142,7 @@ class BootStrapData {
                 title: 'Брильянтовий зелений',
                 description: 'Зеленка',
                 structure: liquid,
-                endingDate: new Date('2017/06/17'),
+                endingDate: new Date('2017/06/01'),
                 user: adminUser
         ).save(failOnError: true)
 
@@ -176,6 +180,16 @@ class BootStrapData {
                 structure: liquid,
                 endingDate: new Date('2015/06/01'),
                 user: adminUser
+        ).save(failOnError: true)
+
+        Drug peroxide1 = new Drug(
+                title: 'Перекис водню розчин',
+                titleEn: 'Hydrogen peroxide solution',
+                description: 'Користувач - test',
+                structure: liquid,
+                instructions: '<html> <h1>Инструкция Перекис водню розчин у Тестового користувача</h1> </html>',
+                endingDate: new Date('2016/10/01'),
+                user: testUser
         ).save(failOnError: true)
     }
 }
