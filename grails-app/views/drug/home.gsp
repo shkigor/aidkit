@@ -38,9 +38,8 @@
         <div class="message" role="status">${flash.message}</div>
     </g:if>
     <formset>
-        <legend>Search for Drugs</legend>
         <g:form action="home">
-            <label for="drugTitle">Drug:</label>
+            <label for="drugTitle">${message(code: 'views.drug.drugTitle.label', default: 'Drug:')}</label>
             <g:textField name="drugTitle" value="${drugTitle}"/>
             <g:submitButton name="search" value="Search"/>
             <g:submitButton name="clear" value="Clear" onclick="clearDrugTitleFieldFunction()"/>
@@ -49,28 +48,18 @@
     <table>
         <thead>
         <tr>
-
-            <g:sortableColumn property="title" defaultOrder="desc"
-                              title="${message(code: 'drug.title.label', default: 'Title')}"/>
-
-            <g:sortableColumn property="titleEn" title="${message(code: 'drug.titleEn.label', default: 'Title En')}"/>
-
-            <g:sortableColumn property="quantity" title="${message(code: 'drug.quantity.label', default: 'Quantity')}"/>
-
-            <g:sortableColumn property="description"
-                              title="${message(code: 'drug.description.label', default: 'Description')}"/>
-
-            <g:sortableColumn property="structure"
-                              title="${message(code: 'drug.structure.label', default: 'Structure')}"/>
-
+            <g:sortableColumn property="title" defaultOrder="desc" title="${message(code: 'ua.ck.solo.aidkit.Drug.title.label', default: 'Title')}"/>
+            <g:sortableColumn property="titleEn" title="${message(code: 'ua.ck.solo.aidkit.Drug.titleEn.label', default: 'Title En')}"/>
+            <g:sortableColumn property="quantity" title="${message(code: 'ua.ck.solo.aidkit.Drug.quantity.label', default: 'Quantity')}"/>
+            <g:sortableColumn property="description" title="${message(code: 'ua.ck.solo.aidkit.Drug.description.label', default: 'Description')}"/>
+            <g:sortableColumn property="structure" title="${message(code: 'ua.ck.solo.aidkit.Drug.structure.label', default: 'Structure')}"/>
         </tr>
         </thead>
         <tbody>
         <g:each in="${drugInstanceList}" status="i" var="drugInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                <td><g:link action="show"
-                            id="${drugInstance.id}">${fieldValue(bean: drugInstance, field: "title")}</g:link></td>
+                <td><g:link action="show" id="${drugInstance.id}">${fieldValue(bean: drugInstance, field: "title")}</g:link></td>
 
                 <td>${fieldValue(bean: drugInstance, field: "titleEn")}</td>
 
