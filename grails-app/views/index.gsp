@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Всем привет :)</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -103,11 +103,12 @@
 			</ul>
 		</div>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+			<h1>Всем привет :)</h1>
+			<p> На нашем сайте вы можете описать содержимое Вашей домашней аптечки.</br>
+				В дальнейшем, поддерживая в актуальном состоянии это описание, Вы сможете предоставить доступ к
+				нему своим родным, друзьям, знакомым.  Получив подобный доступ к аптечкам наших пользователей,
+				Вы сможете в любой момент попробовать найти в них нужный Вам препарат и договориться о его получении.
+			</p>
 
 			<div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
